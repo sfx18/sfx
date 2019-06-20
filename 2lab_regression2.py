@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-DD = pd.read_csv("haberman.csv")
+DD = pd.read_csv("haberman.csv"
 
 X = DD.values[:,:1]
 Y = DD.values[:,3:]-1
