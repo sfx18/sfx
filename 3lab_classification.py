@@ -5,7 +5,7 @@ import math as m
 
 
 def func(x):
-    return 1 / (1 + m.exp(-x)
+    return 1 / (1 + m.exp(-x))
 
 l = 100
 
