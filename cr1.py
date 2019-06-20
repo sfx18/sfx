@@ -15,7 +15,7 @@ x = DD.values[:,:6]
 y = DD.values[:,6:]
 
 x = np.array(x)
-x = np.array(y)
+y = np.array(y)
 
 x = np.concatenate([np.ones((x.shape[0],1)), x], axis=1)
 
