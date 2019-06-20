@@ -6,7 +6,7 @@ import scipy.optimize as so
 import matplotlib.pyplot as plt
 
 
-
+#Объявление матриц
 
 A = np.array([[1, 2, 3], [-2,3,0],[5,1,4]])
 print (str(A) + ' = A\n')
@@ -17,14 +17,14 @@ print (str(u) + ' = u\n')
 v = np.array([[3], [2], [10]])
 print (str(v) + ' = v\n')
 
-
+#Объявление случайной матрицы и вектора
 
 C = np.random.random((100, 100))
 print (str(C) + ' = C\n')
 w = np.random.random((100, 1))
 print (str(w) + ' = w\n')
 
-
+#Вычисление выражений
 
 print (str(A + B) + ' = A + B\n')
 print (str(A * B) + ' = AB\n')
@@ -35,30 +35,30 @@ print (str(u * v) + ' = uv\n')
 print (str(C * w) + ' = Cw\n')
 print (str(w.T * C) + ' = (w^T)C\n')
 
-
+#матрица,элементы которой i*j
 
 D = np.fromfunction(lambda i,j : i*j, (20, 20))
 print(str(D).replace('.','').replace('  ',' '))
 
+#сохранение матрицы в файл
 
+sio.savemat ('data.mat', {'A': A})
+A1 = sio.loadmat('data.mat')['A']
+print (A1)
 
-#sio.savemat ('data.mat', {'A': A})
-#A1 = sio.loadmat('data.mat')['A']
-#print (A1)
-
-
+#сумма положительных эл-ов матриц
 
 print (str(A[A>0].sum()) + ' = Summa A[A>0]\n')
 print (str(B[B>0].sum()) + ' = Summa B[B>0]\n')
 print (str(A[A>0].sum()+B[B>0].sum()) + ' = Summa A+B[A,B>0]\n')
 
-
+#записать матрицу в строку 
 
 AA = np.reshape(A, (1, 9))
 print(AA)
 print(str(AA[:,1::2]) + ' = chetnie pozicii\n')
 
-
+#найти обратные и псевдообратные матрицы
 
 print (str(li.inv(A)) + ' = obratnaj A\n')
 print (str(li.pinv(B)) + ' = psevdoobratnaj A\n')
@@ -67,7 +67,7 @@ print (str(li.inv(A).dot(A)) + ' = edenichnaj A\n')
 print (str(li.pinv(B).dot(B)) + ' = edenichnaj B\n')
 print (str(li.inv(C).dot(C)) + ' = edenichnaj C\n')
 
-
+#решить систему ур-й
 
 H = np.array([[32, 7, -6], [-5, -20, 3], [0, 1, -3]])
 J = np.array([12, 3, 7])
@@ -79,12 +79,12 @@ print(lj[0, :].sum())
 print(lj[1, :].sum())
 print(lj[2, :].sum())
 
-
+#нахождение собственных значений
 
 print (li.eig(A))
 print (li.eig(B))
 
-
+#найти минимумы ф-й
 
 def f1(x):
     return 5*(x-2)**4 - 1/(x**2+8)
@@ -100,7 +100,7 @@ def df2(x):
 x_min = so.minimize(f2, [0.0, 0.0], method='BFGS', jac=df2)
 print ('f2(x1,x2) = 4(x1-3*x2)^2 + 7*x1^4\n' + str(x_min))
 
-
+#построить графики ф-й
 
 def g1(x):
     return x**5 - 2*x**4 + 3*x - 7
@@ -121,7 +121,8 @@ plt.title('Plot')
 
 plt.show()
 
-#13
+#построить графики ф-й в двух системах координат
+
 def g1(x):
     return x**5 - 2*x**4 + 3*x - 7
 def g2(x):
@@ -143,7 +144,8 @@ plt.title('Plot #2')
 
 plt.show()
 
-#14
+#найти по одному из нулей каждой ф-ии
+
 g1x0 = so.brentq(g1, -5, 5)
 g2x0 = so.brentq(g2, -5, 5)
 
