@@ -3,7 +3,7 @@ import numpy as np
 
 class PartyNN():
     def __init__(self, learning_rate):
-        self.weight_1 = np.random.normal(0.0, 1, (2, 4)
+        self.weight_1 = np.random.normal(0.0, 1, (2, 4))
         self.weight_2 = np.random.normal(0.0, 1, (4, 1))
         self.learning_rate = learning_rate
 
