@@ -6,7 +6,7 @@ import math as m
 import matplotlib.pyplot as plt
 import pandas as pd
 
-DD = pd.read_csv("diet_data.csv"
+DD = pd.read_csv("diet_data.csv")
 del DD ['Date']
 del DD ['change']
 del DD ['cals_per_oz']
