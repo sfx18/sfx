@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import sklearn.datasets as ds
 
 
-DS = ds.load_boston()
+DS = ds.load_boston(
 X = DS.data
 Y = DS.target
 
